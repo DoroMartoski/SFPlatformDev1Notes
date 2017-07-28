@@ -33,3 +33,14 @@
   * Concurrent limits: caps the number of long-running calls (20 seconds or longer) that are running at one time. 5 for dev edition and 25 for sandbox org.
   * Total limits: caps the number of calls made within a rolling 24-hour period. The limits vary by org edition, license type and expansion packs that are purchased.
 
+* To check remaining API calls => Setup -> System Overview. You can also set up notifications for API remaining calls.
+
+### Rest Resources and Methods
+* A REST request consists of 4 components: a resource URI, an HTTP method, request headers, request body.
+* Request headers specify metadata for the request.
+* Request body specifies data for the request, when necessary(body is omitted from the request if there is no data to specify).
+
+
+
+
+
