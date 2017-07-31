@@ -40,6 +40,17 @@
 * Request headers specify metadata for the request.
 * Request body specifies data for the request, when necessary(body is omitted from the request if there is no data to specify).
 
+### REST Resources and Methods
+* Each resource in REST API is identified by a named Uniform Resource Identifier(URI) and accessed using standard HTTP methods (HEAD, GET, POST, PATCH, DELETE).
+
+##### A rest resource consists of 4 components:
+* Resource URI
+* HTTP method
+* Request headers - specify metadata for the request
+* Request body - specifies data for the request, when necessary. 
+
+
+
 
 
 
