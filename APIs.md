@@ -49,6 +49,76 @@
 * Request headers - specify metadata for the request
 * Request body - specifies data for the request, when necessary. 
 
+### SOAP API
+#### Salesforce provides 2 SOAP API WSDLs for 2 different uses cases:
+* Enterprise WSDL is optimized for a single Salesforce org - strongly typed and reflects the org's specific configuration meaning that two enterprise WSDL files generated from 2 different orgs contain different information.
+* Partner WSDL - optimized for use with many Salesforce orgs. It's loosely typed and doesn't change based on an org's specific configuration.
+
+### Bulk API
+#### Bulk API is based on REST principles but is optimized for working with large sets of data and runs asynchronously whereas SOAP and REST API use synchronous requests and are optimized for real time client applications that update a few records at a time.
+* Easiest way to use Bult API is to enable it for processing records in Data Loader using CSV files
+
+#### Uploading data using the Bulk API:
+* Create a job by submitting a POST request to the JobInfo resource with the job's properties in the request body.
+* use the URI "/services/async" instead of "/services/data". async portion specifies that we are making a Bulk API request.
+* Like SOAP API, the API version number doesn't include a "v" prefix in contrast with the REST API.
+* "/job" indicates that we are accessing the JobInfo resource. => "/services/async/39/job"
+* Bulk API supports payloads in CSV, XML and JSON.
+
+### Streaming API
+####Unlike the other APIs, Streaming API uses push paradigm based on criteria defined to push notifications from Salesforce to the client app.
+* Streaming API allows you to keep your external system in sync with your Salesforce data. 
+* Also lets you process business logic in an external system in response to data changes in Salesforce.
+* It can be used to broadcast notifications for events defined outside of Salesforce
+
+##### PushTopics
+* Streaming API can be interfaced with through PushTopics.
+* PushTopic is an sObject that contains the criteria of events you want to listen to - eg data changes for a particular object.
+* Enables you to define the objects, fields, and criteria you are interested in receiving event notifications for.
+* You define the criteria as a SOQL query in the PushTopic and specify the record operations to notify on(create, update, delete, and undelete).
+* Id field must be included in the PushTopic query.
+* Only 1 object per query allowed.
+
+###### PushTopic represents the channel that client apps subscribe to.
+* Account, campaign, Case, contact, lead, opportunity, task are standard objects supported by PushTopics.
+
+Code:
+pushtopic pushtopic = new PushTopic()'
+pushTopic.name = 'AccountUpdates';
+pushtopic.query = ''select Id, Name, Phone From Account Where BillingCity=\'San Francisco\'';
+pushtopic.ApiVersion = 37.0;
+
+insert pushTopic;
+
+* You can change which fields generate notifications by modifying the PushTopic field NotifyForFields.
+
+##### Retrieve Past Notifications Using Durable Streaming
+* Since API version 37.0 you can retrieve past events that match a PustTopic query within a 24 hr window using replayId.
+
+##### Generic Streaming
+* This supports sending notifications with a generic payload that aren't tied to Salesforce data changes such as boradcasting messages to specific teams or entire organization, sending notifications for events that are external to Salesforce.
+
+###### Things needed for generic streaming include:
+* A streaming channel that defines the channel
+* One or more clients subscribed to the channel
+* The streaming Channel Push resource to monitor and invoke events on the channel.
+
+* You can create a streaming channel for generic streaming either through the Streaming Channels app in the user interface or through the API
+* A streaming channel is represented by the StreamingChannel sObject so can be created through Apex, RESTAPI or SOAP API.
+* Format of the channel name for generic streaming is /u/ChannelName.
+
+E.g of a channel named Broadcast:
+
+StreamingChannel ch = new StreamingChannel();
+ch.Name = '/u/Broadcast';
+
+insert ch;
+
+
+
+
+
+
 
 
 
