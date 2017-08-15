@@ -52,6 +52,6 @@
 * Use mock callouts by either implementing an interface or using static resources(staticResourceCalloutMock).
 * Test.setMock method informs the runtime that mock callouts are used in the test method.
 
-####* Test GET callout with StaticResourceCalloutMock
+#### * Test GET callout with StaticResourceCalloutMock
 
 
