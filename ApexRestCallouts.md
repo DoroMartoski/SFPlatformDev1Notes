@@ -3,7 +3,7 @@
 * Each callout request is associated with an HTTP method and an endpoint. The HTTP method indicates what type of action is desired.
 * Each HTTP request sets a URI, which is the endpoint address at which the service is located.
 
-  public class HTTPCalloutClass {
+    public class HTTPCalloutClass {
       public HTTPCalloutClass(){
         
       }
@@ -44,7 +44,7 @@
         }else{
             System.debug(response.getBody());
         }        
+      }
     }
-  }
 
 
