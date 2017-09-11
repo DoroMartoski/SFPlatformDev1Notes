@@ -18,6 +18,5 @@
 * DescribeSObjects method - a method in the schema class that performs describes on one or more sObject
 
 #### Describe result - an object of type schema.describeSObjectResult that contains all the describe properties for the sObject or field.
-    * Describe result objects are not serializable, and are validated at runtime. 
-    * This result object is returned when performing the describe, using either the sObject token or the describeSobjects method.
+    
     
