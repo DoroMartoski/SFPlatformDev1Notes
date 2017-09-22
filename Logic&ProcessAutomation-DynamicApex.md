@@ -48,8 +48,21 @@ dfr = dfr.getSObjectField().getDescribe();
 SObjects such as Account and customObjects act as static classes with special static methods and member variables for accessing token and describe result information.
 #### Accessing sObject token:
 **Access the SObjectType member variable on an sObject type, such as Account:**
-* E.g Schema.sobjectType t = Account.sObjectType;
+* E.g Schema.sobjectType t = Account.sObjectType;\
+For few standard sObjects that have a field called sObjectType (E.g AssignmentRule, QueueSObject, RecordType), always use the getSObjectType method for retrieving the token.
 
 **Call the getSObjectType method on an sObject describe result, an sObject variable, a list or a map:**
-* E.g: ``` Account a = new Account();``` 
-``` Schema.sObjectType t = a.getSObjectType(); ```
+* E.g: ``` Account a = new Account(); 
+Schema.sObjectType t = a.getSObjectType(); ```
+
+#### To access the describe result for an sObject, use one of the following methods:
+* Call the getDescribe method on an sObject token
+* Use the Schema sObjectType static variable with the name of the sObject. E.g Schema.SObjectType.Account
+
+**Schema.DescribeSObjectResult is the data type for an sObject describe result**
+* getDescribe method on an sObject token:
+**```Schema.DescribeSObjectResult dsr = Account.sObjectType.getDescribe();```**
+* Schema sObjectType static member variable example:
+**``` Schema.DescribeSObjectResult dsr = Schema.SObjectType.Account; ```**
+
+ 
