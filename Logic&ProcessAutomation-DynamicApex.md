@@ -18,8 +18,8 @@
 * DescribeSObjects method - a method in the schema class that performs describes on one or more sObject
 
 #### Describe result - an object of type schema.describeSObjectResult that contains all the describe properties for the sObject or field.
-*** Describe result objects are not serializable, and are validated at runtime.** 
-*** This result object is returned when performing the describe, using either the sObject token or the describeSobjects method.**
+** Describe result objects are not serializable, and are validated at runtime.** 
+** This result object is returned when performing the describe, using either the sObject token or the describeSobjects method.**
 
 **Both sObject and field tokens have the method getDescribe which returns the describe result for that token**.
 * getSObjecType and getSObjectField methods on the describe result return the tokens for sobject and field respectively.
@@ -44,3 +44,11 @@ System.assert(dfr.getSObjectField() == Account.Name);
 // Get the field describe result from the token
 dfr = dfr.getSObjectField().getDescribe();
 ```
+
+SObjects such as Account and customObjects act as static classes with special static methods and member variables for accessing token and describe result information.
+#### Accessing sObject token:
+** Access the SObjectType member variable on an sObject type, such as Account: 
+* E.g Schema.sobjectType t = Account.sObjectType;
+
+** Call the getSObjectType method on an sObject describe result, an sObject variable, a list or a map: 
+* E.g: ``` Account a = new Account(); Schema.sObjectType t = a.getSObjectType();   ```
