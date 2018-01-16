@@ -1,4 +1,4 @@
-###Apex sharing
+### Apex sharing
 * Use the share object associated with the standard or custom object to share that custom object. E.g accountShare for account and 
 myCustomObjetShare for myCustomObject.
 * Share object includes records supporting all 3 types of sharing: **Force.com managed sharing**, **user managed sharing**, and 
