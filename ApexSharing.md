@@ -23,4 +23,6 @@ tracked with this object.
 * Apex managed sharing must use an Apex sharing reason - this enables devs to **easily track why they shared a record** and **be able to share with the same user or group multiple times using differnt reasons".**
 * Format => Schema.Object__Share.rowCause.MyReasonName__c
 * **Apex sharing reason are defined on an object's detail page**.
+* Customer Community Plus users (Portal users) do not have access to share objects such as Accountshare and contactShare => use triggers(triggers operate with the without sharing keyword by default) or inner class with the same keyword to enable the dml operation to run successfully or a utility class.
+* Granting visibility via manual/apex shares written to the share objects is supported but the objects themselves aren't available to Customer Community Plus users.
 
