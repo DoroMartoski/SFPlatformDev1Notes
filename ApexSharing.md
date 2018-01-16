@@ -14,5 +14,13 @@ tracked with this object.
 * **Manual** is the default value for sharing objects.
 
 ### User Managed Sharing Using Apex
-* User managed sharing using Apex is the only shares that is deleted if the owner of the record is deleted.
+* User managed sharing using Apex is the only shares that is deleted if the owner of the record changes.
+* This type of shring manually shares a record to a user or a group.
+
+### APex Managed Sharing
+* Allows devs to programmatically manipulate sharing to support their application's behavior through APex or the SOAP API.
+* **Only users with "Modify All Data" permission can add or change Apex managed sharing on a record.**.
+* Apex managed sharing must use an Apex sharing reason - this enables devs to **easily track why they shared a record** and **be able to share with the same user or group multiple times using differnt reasons".**
+* Format => Schema.Object__Share.rowCause.MyReasonName__c
+* **Apex sharing reason are defined on an object's detail page**.
 
