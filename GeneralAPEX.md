@@ -1,7 +1,17 @@
 ### Apex Core Concepts
 
 * Version settings indicate the version of SOAP API and Apex to use. You can also use version settings to associate a class or trigger with a particular version of a managed package that is installed in your organization from Appexchange.
-* Apex is a strongly-typed language - the data type of a variable must be declared when you first reference it. 
+* Apex is a strongly-typed language - the data type of a variable must be declared when you first reference it.
+
+### Triggers
+* Use triggers to perform CRUD operations on related records or rrestrict certain operations from haappening.
+* Triggers can be defined for custom objects, top-level standard objects and some standard child objects.
+```
+trigger TriggerName on ObjectName(trigger_events){
+    code_block
+}
+```
+
 
 * **A block is a series of statements that are grouped together with curly braces and can be used in any place where a single statement would be allowed.**
 * **Apex has 3 collections - lists(arrays), Maps, and Sets.**
