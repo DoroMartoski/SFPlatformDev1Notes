@@ -35,9 +35,23 @@ trigger TriggerName on ObjectName(trigger_events){
     Boolean x = null; is the same as boolean x;
 * All primitive data types are passed by value => **this means pass by copy. the value being passed is a copy of the original variable and hence any changes made to the value does not affect the original variable**
 ```
-int x = 7;
-void go(int z){};
-foo.go(x); => z gets assigned a copy of the value of x, so z == 7.
+public class testPassByValue{
+    public integer x = 7;
+    
+    public void testPBV(integer z){
+        z += 5;
+        System.debug('z is now assigned '+z);
+        System.debug('x is '+x);
+    }
+    
+
+}
+
+Instantiating an object:
+testPassByValue myTBV = new testPassByValue();
+myTBV.testPBV(myTBV.x);
+
+=> z is now 12 but x remains 7.
 ```
 * All apex variables are initalized to null and hence you need to initialize them before using them.
 * Primitives include Blob, boolean, date, datetime, decimal, double, id, integer, long, object, string, time.
