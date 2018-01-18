@@ -16,7 +16,8 @@ trigger TriggerName on ObjectName(trigger_events){
 * Before triggers - **used to update or validate record values before they are saved to the database**.
 * After triggers - used to **access field values that are set by the system ( eg record ids or lastmodifieddate field) and to affect changes in other records.**
 * **The records that fire the after triggers are read only.**
-
+***************************************************************************************************************************************
+***************************************************************************************************************************************
 ### Access modifiers
  * A method or variable by default are only visible to the Apex code within the defining class.
  * A method or variable must be explicitly specified as public in order for it to be available to other classes in the same application namespace.
@@ -27,6 +28,12 @@ trigger TriggerName on ObjectName(trigger_events){
  * **Public - method or variable can be used by any Apex in the application or namespace.**
  * **global - the method or variable can be used by any Apex code that has access to the class not just the APex code in the same application.**
  * **Use global access modifier if you need to refernece a method in a SOAP API. A class needs to be declared as global before a method can be declared as global.**
+**************************************************************************************************************************************
+**************************************************************************************************************************************
+### Variables
+* A variable declared without being initialized with a value has a null value automatically assigned to it. 
+    Boolean x = null; is the same as boolean x;
+
 
 
 * **A block is a series of statements that are grouped together with curly braces and can be used in any place where a single statement would be allowed.**
