@@ -30,12 +30,24 @@ trigger TriggerName on ObjectName(trigger_events){
  * **Use global access modifier if you need to refernece a method in a SOAP API. A class needs to be declared as global before a method can be declared as global.**
 **************************************************************************************************************************************
 **************************************************************************************************************************************
-### Variables
+### Variables and primitives
 * A variable declared without being initialized with a value has a null value automatically assigned to it. 
     Boolean x = null; is the same as boolean x;
+* All primitive data types are passed by value => **this means pass by copy. the value being passed is a copy of the original variable and hence any changes made to the value does not affect the original variable**
+```
+int x = 7;
+void go(int z){};
+foo.go(x); => z gets assigned a copy of the value of x, so z == 7.
+```
+* All apex variables are initalized to null and hence you need to initialize them before using them.
+* Primitives include Blob, boolean, date, datetime, decimal, double, id, integer, long, object, string, time.
+* Boolean can be true, false or null. Id can be either 15 character case sensitive or 18 character case insensitive.
+* Strings have no limit on the number of characters they can include - the heap size limits ensures the size does not grow too big.
 
+=> further reading: https://developer.salesforce.com/docs/atlas.en-us.apexcode.meta/apexcode/langCon_apex_primitives.htm
 
-
+***************************************************************************************************************************************
+***************************************************************************************************************************************
 * **A block is a series of statements that are grouped together with curly braces and can be used in any place where a single statement would be allowed.**
 * **Apex has 3 collections - lists(arrays), Maps, and Sets.**
 * list is a collection of elements such as Integers, Strings, objects or other collections.
