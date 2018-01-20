@@ -100,8 +100,8 @@ myTBV.testPBV(myTBV.x);
 ****************************************************************************************************************************************
 ****************************************************************************************************************************************
 ### Change management
-* Developer sandbox : for development and testing.
-* Developer Pro sandbox: development and testing (quality assurance tasks such as integration testing or user training)
-* Partial copy sandbox: testing environment that has your org's config(metadata) and sample of your production org's data as defined by a sandbox template. Use partial sandbox for quality assurance tasks such UAT, integration testing and training.
+* Developer sandbox : for development and QA.
+* Developer Pro sandbox: development and QA
+* Partial copy sandbox: development and testing environment that has your org's config(metadata) and sample of your production org's data as defined by a sandbox template. Use partial sandbox for QA, UAT, integration testing, batch data testing and training.
 * Full sandbox: use for performance testing, load testing and staging.
 * **Sandbox template: use sandbox template so that your sandbox contains only the records that you need for testing and other tasks.**
