@@ -16,6 +16,8 @@ trigger TriggerName on ObjectName(trigger_events){
 * Before triggers - **used to update or validate record values before they are saved to the database**.
 * After triggers - used to **access field values that are set by the system ( eg record ids or lastmodifieddate field) and to affect changes in other records.**
 * **The records that fire the after triggers are read only.**
+* **call the addError() method to prevent saving records in a trigger or adding restrictions on certain database operations in a trigger.**
+* Web service callouts from a trigger has to be asynchronous by calling a class method that is annotated with the @future(callout=true)
 ***************************************************************************************************************************************
 ***************************************************************************************************************************************
 ### Access modifiers
@@ -72,4 +74,34 @@ myTBV.testPBV(myTBV.x);
 * **Map** is a collection of key-value pairs. Keys can be any primitive data types. Values can include primitive data types as well as objects and other collections.
 * Maps can contain duplicate values in a map but each key must be unique.
  Map<Integer, String> acctMap = new Map<Integer, String>{1 => 'a',2 => 'b', 3 =>'c'};
-
+    
+****************************************************************************************************************************************
+****************************************************************************************************************************************
+### Apex testing
+* ALl test class are annotated with @isTest
+* Test classes can have the modifier private or public. Use public for test data factory and private for unit testing
+ Test methods can be created in two ways:
+ ```
+    @isTest static void testName(){
+        //code block
+    }
+    
+    static testMethod void testName(){
+        //code block;
+    }
+ ```
+ ***************************************************************************************************************************************
+ ***************************************************************************************************************************************
+ ### SOQL and SOSL in APex
+ * SOSL syntax:
+ ```
+ Find 'test to find' IN ALL Fields Returning Account(Name), Contact(FirstName, LastName)
+ ```
+****************************************************************************************************************************************
+****************************************************************************************************************************************
+### Change management
+* Developer sandbox : for development and testing.
+* Developer Pro sandbox: development and testing (quality assurance tasks such as integration testing or user training)
+* Partial copy sandbox: testing environment that has your org's config(metadata) and sample of your production org's data as defined by a sandbox template. Use partial sandbox for quality assurance tasks such UAT, integration testing and training.
+* Full sandbox: use for performance testing, load testing and staging.
+* **Sandbox template: use sandbox template so that your sandbox contains only the records that you need for testing and other tasks.**
